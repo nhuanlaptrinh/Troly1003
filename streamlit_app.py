@@ -75,10 +75,10 @@ if prompt := st.chat_input("Sếp nhập nội dung cần trao đổi ở đây 
     st.markdown(f'<div class="user">{prompt}</div>', unsafe_allow_html=True)
 
     # Tạo phản hồi từ API OpenAI
-    print("mmmmm",rfile("module_chatgpt.txt").strip() )
+    module_name = rfile("module_chatgpt.txt").strip()
     response = ""
     stream = client.chat.completions.create(
-        model=rfile("module_chatgpt.txt").strip(),
+        model=module_name,
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
         stream=True,
     )
