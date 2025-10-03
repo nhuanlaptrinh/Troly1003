@@ -75,10 +75,9 @@ if prompt := st.chat_input("Sếp nhập nội dung cần trao đổi ở đây 
     st.markdown(f'<div class="user">{prompt}</div>', unsafe_allow_html=True)
 
     # Tạo phản hồi từ API OpenAI
-    module_name = "gpt-5-mini"
     response = ""
     stream = client.chat.completions.create(
-        model=module_name,
+        model="gpt-5-mini",
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
         stream=True,
     )
