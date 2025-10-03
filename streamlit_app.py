@@ -77,7 +77,7 @@ if prompt := st.chat_input("Sếp nhập nội dung cần trao đổi ở đây 
     # Tạo phản hồi từ API OpenAI
     response = ""
     stream = client.chat.completions.create(
-        model="gpt-5-mini",
+        model=rfile("module_chatgpt.txt").strip(),
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
         stream=True,
     )
